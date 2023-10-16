@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// import 'dart:async';
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
@@ -8,6 +9,12 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
+  // var _timer = 0;
+
+  // startSplash() {}
+
+  // _count_time() async {}
+
   @override
   Widget build(BuildContext context) {
     return Material(

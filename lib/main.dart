@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'package:cu_menopause/ui/screens/mrs/mrs.dart';
-import 'package:cu_menopause/ui/screens/nurse/nurse.dart';
-import 'package:cu_menopause/ui/screens/patient/patient.dart';
-import 'package:cu_menopause/ui/screens/register/register.dart';
-import 'package:cu_menopause/ui/screens/login/login.dart';
-import 'package:cu_menopause/ui/screens/splash/splash.dart';
-import 'package:cu_menopause/ui/screens/home/home.dart';
+import 'package:cu_menopause/screens/doctor.dart';
+import 'package:cu_menopause/screens/home.dart';
+import 'package:cu_menopause/screens/login.dart';
+import 'package:cu_menopause/screens/mrs.dart';
+import 'package:cu_menopause/screens/nurse.dart';
+import 'package:cu_menopause/screens/patient.dart';
+import 'package:cu_menopause/screens/register.dart';
+import 'package:cu_menopause/screens/splash.dart';
 
 void main() async {
   runApp(CUMenopauseApp());
@@ -17,23 +18,26 @@ class CUMenopauseApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'CU Menopause',
-      home: Container(
-          child: HomeScreen(),
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/BG.jpeg"),
-              fit: BoxFit.cover,
-            ),
-          )),
+      initialRoute: '/login',
       routes: <String, WidgetBuilder>{
         '/': (BuildContext context) => const Splash(),
         '/login': (BuildContext context) => const Login(),
+        '/home': (BuildContext context) => const HomeScreen(),
         '/register': (BuildContext context) => const Register(),
         '/patient': (BuildContext context) => const Patient(),
         '/mrs': (BuildContext context) => const Mrs(),
         '/nurse': (BuildContext context) => const Nurse(),
-        '/doctor': (BuildContext context) => const Login(),
+        '/doctor': (BuildContext context) => const Doctor(),
       },
     );
   }
 }
+
+// Container(
+//           child: HomeScreen(),
+//           decoration: BoxDecoration(
+//             image: DecorationImage(
+//               image: AssetImage("assets/images/BG.jpeg"),
+//               fit: BoxFit.cover,
+//             ),
+//           )),
