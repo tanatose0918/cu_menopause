@@ -1,19 +1,27 @@
 import 'package:flutter/material.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+// import 'package:cu_menopause/ui/screens/home/sections/login.dart';
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  _HomeState createState() => _HomeState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
         children: [
-          Image.asset('assets/images/logo.png'),
+          Padding(
+            padding: EdgeInsets.all(20),
+            child: Image.asset('assets/images/logo.png'),
+          ),
+          Container(
+            // child: Login(),
+          ),
         ],
       ),
     );
