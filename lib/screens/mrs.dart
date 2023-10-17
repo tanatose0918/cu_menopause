@@ -12,7 +12,7 @@ class _MrsState extends State<Mrs> {
   Widget build(BuildContext context) {
     return Material(
       child: Container(
-          child: Text(
+          child: const Text(
         'MRS Page',
         style: TextStyle(fontSize: 50, color: Color.fromRGBO(50, 91, 202, 1)),
       )),

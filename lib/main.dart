@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:cu_menopause/screens/doctor.dart';
 import 'package:cu_menopause/screens/home.dart';
@@ -10,15 +11,20 @@ import 'package:cu_menopause/screens/register.dart';
 import 'package:cu_menopause/screens/splash.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // runApp(MultiRepositoryProvider(providers: const [], child: const CUMenopauseApp()));
   runApp(CUMenopauseApp());
 }
 
 class CUMenopauseApp extends StatelessWidget {
+  const CUMenopauseApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'CU Menopause',
       initialRoute: '/login',
+      theme: ThemeData(fontFamily: 'ChulaCharas'),
       routes: <String, WidgetBuilder>{
         '/': (BuildContext context) => const Splash(),
         '/login': (BuildContext context) => const Login(),

@@ -25,7 +25,7 @@ class _LoginState extends State<Login> {
 
     return Material(
       child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               image: DecorationImage(
             image: AssetImage("assets/images/BG.jpeg"),
             fit: BoxFit.cover,
@@ -33,15 +33,21 @@ class _LoginState extends State<Login> {
           child: Center(
             child: Column(children: [
               Padding(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 child: Image.asset('assets/images/logo.png'),
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.all(20),
-                child: Text('เข้าสู่ระบบ'),
+                child: Text(
+                  'เข้าสู่ระบบ',
+                  style: TextStyle(
+                      fontSize: 50.0,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 117, 17, 70)),
+                ),
               ),
               Padding(
-                  padding: EdgeInsets.fromLTRB(120, 20, 120,
+                  padding: const EdgeInsets.fromLTRB(120, 20, 120,
                       20), // EdgeInsets.fromLTRB(140, 20, 140, 20)
                   child: Form(
                     child: Column(
@@ -81,7 +87,7 @@ class _LoginState extends State<Login> {
                                 });
                               },
                             ),
-                            Text('จำรหัสผ่าน')
+                            const Text('จำรหัสผ่าน')
                           ],
                         ),
                         ElevatedButton(
@@ -92,7 +98,7 @@ class _LoginState extends State<Login> {
                               Navigator.pushNamed(context, '/home',
                                   arguments: args);
                             },
-                            child: Text('เข้าสู่ระบบ'))
+                            child: const Text('เข้าสู่ระบบ'))
                       ],
                     ),
                   )),
@@ -101,47 +107,3 @@ class _LoginState extends State<Login> {
     );
   }
 }
-
-// Container(
-//       child: HomeScreen(),
-//       decoration: BoxDecoration(
-//         image: DecorationImage(
-//           image: AssetImage("assets/images/BG.jpeg"),
-//           fit: BoxFit.cover,
-//         ),
-//       )),
-
-// Center(
-//           child: Form(
-//     child: Column(children: [
-//       Padding(
-//         padding: EdgeInsets.fromLTRB(
-//             140, 20, 140, 20), // EdgeInsets.fromLTRB(140, 20, 140, 20)
-//         child: TextFormField(
-//           decoration: const InputDecoration(
-//             labelText: 'ชื่อผู้ใช้',
-//           ),
-//           validator: (String? value) {
-//             if (value == null || value.isEmpty) {
-//               return 'Please enter some text';
-//             }
-//             return null;
-//           },
-//         ),
-//       ),
-//       Padding(
-//         padding: EdgeInsets.fromLTRB(140, 20, 140, 20),
-//         child: TextFormField(
-//           decoration: const InputDecoration(
-//             labelText: 'รหัสผ่าน',
-//           ),
-//           validator: (String? value) {
-//             if (value == null || value.isEmpty) {
-//               return 'Please enter some text';
-//             }
-//             return null;
-//           },
-//         ),
-//       ),
-//     ]),
-//   ))

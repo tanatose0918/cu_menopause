@@ -19,7 +19,7 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     return Material(
       child: Container(
-          child: Text(
+          child: const Text(
         'Splash Page',
         style: TextStyle(fontSize: 50, color: Color.fromRGBO(48, 217, 51, 1)),
       )),

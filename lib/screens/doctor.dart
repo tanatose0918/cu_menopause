@@ -7,7 +7,7 @@ class Doctor extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: Container(
-          child: Text(
+          child: const Text(
         'Doctor Page',
         style: TextStyle(fontSize: 50, color: Color.fromRGBO(6, 99, 11, 1)),
       )),

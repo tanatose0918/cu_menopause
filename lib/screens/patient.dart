@@ -12,7 +12,7 @@ class _PatientState extends State<Patient> {
   Widget build(BuildContext context) {
     return Material(
       child: Container(
-          child: Text(
+          child: const Text(
         'Patient Page',
         style: TextStyle(fontSize: 50, color: Color.fromRGBO(147, 45, 138, 1)),
       )),

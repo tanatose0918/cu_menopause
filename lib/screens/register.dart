@@ -12,7 +12,7 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     return Material(
       child: Container(
-          child: Text(
+          child: const Text(
         'Register Page',
         style: TextStyle(fontSize: 50, color: Color.fromRGBO(28, 22, 205, 1)),
       )),
