@@ -10,6 +10,25 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   bool isChecked = false;
 
+// Form Controller --------------------------------------------------
+  final _loginForm = GlobalKey<FormState>();
+
+  final _username = TextEditingController();
+  final _password = TextEditingController();
+
+  @override
+  void dispose() {
+    _username.dispose();
+    _password.dispose();
+    super.dispose();
+  }
+
+  // @override
+  // FontWeight changeFontWeight(){
+  //   if
+  //   return;
+  // }
+
   @override
   Widget build(BuildContext context) {
     Color getColor(Set<MaterialState> states) {
@@ -47,61 +66,138 @@ class _LoginState extends State<Login> {
                 ),
               ),
               Padding(
-                  padding: const EdgeInsets.fromLTRB(120, 20, 120,
-                      20), // EdgeInsets.fromLTRB(140, 20, 140, 20)
+                  padding: const EdgeInsets.all(
+                      26), // EdgeInsets.fromLTRB(140, 20, 140, 20)
                   child: Form(
+                    key: _loginForm,
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        TextFormField(
-                          decoration: const InputDecoration(
-                            labelText: 'ชื่อผู้ใช้',
-                          ),
-                          validator: (String? value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter some text';
-                            }
-                            return null;
-                          },
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+                          width: 284,
+                          child: const Text('ชื่อผู้ใช้',
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold)),
                         ),
-                        TextFormField(
-                          decoration: const InputDecoration(
-                            labelText: 'รหัสผ่าน',
-                          ),
-                          validator: (String? value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter some text';
-                            }
-                            return null;
-                          },
-                        ),
-                        Row(
-                          children: [
-                            Checkbox(
-                              checkColor: Colors.white,
-                              fillColor:
-                                  MaterialStateProperty.resolveWith(getColor),
-                              value: isChecked,
-                              onChanged: (bool? value) {
-                                setState(() {
-                                  isChecked = value!;
-                                });
-                              },
+                        ConstrainedBox(
+                          constraints: const BoxConstraints(
+                              maxHeight: 72,
+                              maxWidth: 284,
+                              minHeight: 20,
+                              minWidth: 124),
+                          child: TextFormField(
+                            textAlign: TextAlign.center,
+                            controller: _username,
+                            textInputAction: TextInputAction.next,
+                            decoration: const InputDecoration(
+                              errorStyle: TextStyle(fontSize: 14),
+                              contentPadding: EdgeInsets.fromLTRB(4, 2, 4, 2),
+                              filled: true,
+                              fillColor: Colors.white,
+                              border: OutlineInputBorder(),
                             ),
-                            const Text('จำรหัสผ่าน')
-                          ],
-                        ),
-                        ElevatedButton(
-                            onPressed: () {
-                              Map<String, dynamic> args = {
-                                "msg": 'Hello somethings'
-                              };
-                              Navigator.pushNamed(context, '/home',
-                                  arguments: args);
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Please enter your username';
+                              }
+                              return null;
                             },
-                            child: const Text('เข้าสู่ระบบ'))
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+                          width: 284,
+                          child: const Text('รหัสผ่าน',
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold)),
+                        ),
+                        TextFormField(
+                          textAlign: TextAlign.center,
+                          controller: _password,
+                          obscureText: true,
+                          textInputAction: TextInputAction.next,
+                          decoration: const InputDecoration(
+                            errorStyle: TextStyle(fontSize: 14),
+                            contentPadding: EdgeInsets.fromLTRB(4, 0, 4, 0),
+                            constraints: BoxConstraints(
+                                maxHeight: 72,
+                                maxWidth: 284,
+                                minHeight: 36,
+                                minWidth: 124),
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(),
+                          ),
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please enter your password';
+                            }
+                            return null;
+                          },
+                        ),
+                        Container(
+                          margin: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+                          width: 284,
+                          child: Row(
+                            children: [
+                              Checkbox(
+                                checkColor: Colors.white,
+                                fillColor:
+                                    MaterialStateProperty.resolveWith(getColor),
+                                value: isChecked,
+                                onChanged: (bool? value) {
+                                  setState(() {
+                                    isChecked = value!;
+                                  });
+                                },
+                              ),
+                              const Text(
+                                'จำรหัสผ่าน',
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 36,
+                          child: ElevatedButton(
+                              onPressed: () {
+                                var valid = _loginForm.currentState!.validate();
+                                if (!valid) {
+                                  return;
+                                }
+
+                                Map<String, dynamic> args = {
+                                  "msg": 'Hello somethings'
+                                };
+                                Navigator.pushNamed(context, '/home',
+                                    arguments: args);
+                              },
+                              child: const Text(
+                                'เข้าสู่ระบบ',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              )),
+                        ),
                       ],
                     ),
                   )),
+              Expanded(flex: 1, child: Container()),
+              TextButton(
+                  style: const ButtonStyle(),
+                  onPressed: () {},
+                  child: const Text(
+                    'ลืมรหัสผ่าน',
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline),
+                  ))
             ]),
           )),
     );

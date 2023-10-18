@@ -13,7 +13,7 @@ import 'package:cu_menopause/screens/splash.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // runApp(MultiRepositoryProvider(providers: const [], child: const CUMenopauseApp()));
-  runApp(CUMenopauseApp());
+  runApp(const CUMenopauseApp());
 }
 
 class CUMenopauseApp extends StatelessWidget {
@@ -24,7 +24,10 @@ class CUMenopauseApp extends StatelessWidget {
     return MaterialApp(
       title: 'CU Menopause',
       initialRoute: '/login',
-      theme: ThemeData(fontFamily: 'ChulaCharas'),
+      theme: ThemeData(
+          fontFamily: 'ChulaCharas',
+          useMaterial3: true,
+          colorSchemeSeed: Color.fromARGB(255, 68, 10, 97)),
       routes: <String, WidgetBuilder>{
         '/': (BuildContext context) => const Splash(),
         '/login': (BuildContext context) => const Login(),
@@ -38,12 +41,3 @@ class CUMenopauseApp extends StatelessWidget {
     );
   }
 }
-
-// Container(
-//           child: HomeScreen(),
-//           decoration: BoxDecoration(
-//             image: DecorationImage(
-//               image: AssetImage("assets/images/BG.jpeg"),
-//               fit: BoxFit.cover,
-//             ),
-//           )),
