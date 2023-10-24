@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 import 'package:cu_menopause/data/model/register_model.dart';
 
-class Register extends StatefulWidget {
-  const Register({Key? key}) : super(key: key);
+class GeneralForm extends StatefulWidget {
+  const GeneralForm({Key? key}) : super(key: key);
 
   @override
-  _RegisterState createState() => _RegisterState();
+  _GeneralFormState createState() => _GeneralFormState();
 }
 
-class _RegisterState extends State<Register> {
+class _GeneralFormState extends State<GeneralForm> {
+  String routeName = '/1';
+
   final _registerForm = GlobalKey<FormState>();
   final _mnNumber = TextEditingController();
 
@@ -173,13 +176,11 @@ class _RegisterState extends State<Register> {
                         if (!valid) {
                           return;
                         }
-                        context
-                            .read<RegisterModel>()
-                            .setMnNumber(_mnNumber.text);
-                        _mnNumber.text = '';
-                        if (context.read<RegisterModel>().checkMnNumber()) {
-                          Navigator.pushNamed(context, '/home');
-                        }
+                        // context.read<UserModel>().setMnNumber(_mnNumber.text);
+                        // if (context.read<UserModel>().checkMnNumber()) {
+                        //   _mnNumber.text = '';
+                        //   Navigator.pushNamed(context, '/home/history');
+                        // }
                       },
                       child: Text('ถัดไป'))
                 ],
