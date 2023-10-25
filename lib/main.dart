@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:cu_menopause/data/model/user_model.dart';
-import 'package:cu_menopause/data/model/register_model.dart';
+import 'package:cu_menopause/data/model/patient_model.dart';
 
 import 'package:cu_menopause/screens/home.dart';
 import 'package:cu_menopause/screens/login.dart';
 import 'package:cu_menopause/screens/history.dart';
 import 'package:cu_menopause/screens/mrs.dart';
 import 'package:cu_menopause/screens/nurse.dart';
-import 'package:cu_menopause/screens/patient.dart';
+import 'package:cu_menopause/screens/patient_screens/patient.dart';
 import 'package:cu_menopause/screens/register.dart';
 import 'package:cu_menopause/screens/splash.dart';
 import 'package:cu_menopause/screens/doctor.dart';
@@ -29,7 +29,9 @@ class CUMenopauseApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => UserModel()),
-        ChangeNotifierProvider(create: (_) => RegisterModel())
+        ChangeNotifierProvider(create: (_) => PatientModel()),
+        // ChangeNotifierProvider(create: (_) => PatientModel()),
+        // ChangeNotifierProvider(create: (_) => PatientModel()),
       ],
       child: MaterialApp(
         title: 'CU Menopause',

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
-import 'package:cu_menopause/data/model/register_model.dart';
+import 'package:cu_menopause/data/model/patient_model.dart';
 
 class GeneralForm extends StatefulWidget {
   const GeneralForm({Key? key}) : super(key: key);
@@ -12,7 +12,7 @@ class GeneralForm extends StatefulWidget {
 }
 
 class _GeneralFormState extends State<GeneralForm> {
-  String routeName = '/1';
+  String routeName = '/form_1';
 
   final _registerForm = GlobalKey<FormState>();
   final _mnNumber = TextEditingController();
@@ -74,14 +74,14 @@ class _GeneralFormState extends State<GeneralForm> {
                 ListTile(
                   title: const Text('ค้นหาประวัติคนไข้'),
                   onTap: () {
-                    context.read<RegisterModel>().setMnNumber('');
+                    context.read<PatientModel>().setMnNumber('');
                     Navigator.pushReplacementNamed(context, '/home');
                   },
                 ),
                 ListTile(
                   title: Text('ลงชื่อออก'),
                   onTap: () {
-                    context.read<RegisterModel>().reset();
+                    context.read<PatientModel>().reset();
                     Navigator.pushReplacementNamed(context, '/login');
                   },
                 )

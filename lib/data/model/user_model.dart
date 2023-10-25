@@ -44,7 +44,7 @@ class UserModel with ChangeNotifier, DiagnosticableTreeMixin {
     return false;
   }
 
-  void checkedMNNumber() {}
+  void checkForgotPassword() {}
 
   void reset() {
     _username = '';

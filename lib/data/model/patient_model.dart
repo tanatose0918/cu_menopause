@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
-class RegisterModel with ChangeNotifier, DiagnosticableTreeMixin {
+class PatientModel with ChangeNotifier, DiagnosticableTreeMixin {
   String _mnNumber = '';
 
   String get mnNumer => _mnNumber;

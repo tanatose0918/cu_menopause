@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:cu_menopause/data/model/register_model.dart';
+import 'package:cu_menopause/data/model/patient_model.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -71,14 +71,14 @@ class _RegisterState extends State<Register> {
                 ListTile(
                   title: const Text('ค้นหาประวัติคนไข้'),
                   onTap: () {
-                    context.read<RegisterModel>().setMnNumber('');
+                    context.read<PatientModel>().setMnNumber('');
                     Navigator.pushReplacementNamed(context, '/home');
                   },
                 ),
                 ListTile(
                   title: Text('ลงชื่อออก'),
                   onTap: () {
-                    context.read<RegisterModel>().reset();
+                    context.read<PatientModel>().reset();
                     Navigator.pushReplacementNamed(context, '/login');
                   },
                 )
@@ -174,10 +174,10 @@ class _RegisterState extends State<Register> {
                           return;
                         }
                         context
-                            .read<RegisterModel>()
+                            .read<PatientModel>()
                             .setMnNumber(_mnNumber.text);
                         _mnNumber.text = '';
-                        if (context.read<RegisterModel>().checkMnNumber()) {
+                        if (context.read<PatientModel>().checkMnNumber()) {
                           Navigator.pushNamed(context, '/home');
                         }
                       },

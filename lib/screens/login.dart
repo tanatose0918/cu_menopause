@@ -30,13 +30,13 @@ class _LoginState extends State<Login> {
     super.dispose();
   }
 
-  void changeShowInfo() {
-    if (!isShowLoginInfo) {
-      isShowLoginInfo = true;
-    } else {
-      isShowLoginInfo = false;
-    }
-  }
+  // void changeShowInfo() {
+  //   if (!isShowLoginInfo) {
+  //     isShowLoginInfo = true;
+  //   } else {
+  //     isShowLoginInfo = false;
+  //   }
+  // }
 
   reset() {
     _username.text = '';
@@ -215,10 +215,8 @@ class _LoginState extends State<Login> {
               TextButton(
                   style: const ButtonStyle(),
                   onPressed: () {
-                    context
-                        .read<UserModel>()
-                        .setLogin(_username.text, _password.text);
-                    changeShowInfo();
+                    context.read<UserModel>().checkForgotPassword();
+                    // changeShowInfo();
                   },
                   child: const Text(
                     'ลืมรหัสผ่าน',
