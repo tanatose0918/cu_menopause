@@ -206,12 +206,7 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                   )),
-              isShowLoginInfo
-                  ? Column(children: [
-                      Text(context.watch<UserModel>().username),
-                      Text(context.watch<UserModel>().password)
-                    ])
-                  : Expanded(flex: 1, child: Container()),
+              Expanded(flex: 1, child: Container()),
               TextButton(
                   style: const ButtonStyle(),
                   onPressed: () {

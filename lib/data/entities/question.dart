@@ -1,3 +1,5 @@
+import 'package:cu_menopause/data/entities/choice.dart';
+
 class Question {
   const Question({
     required this.id,
@@ -7,10 +9,12 @@ class Question {
     this.number,
     required this.created_at,
     required this.updated_at,
-    required this.sort,
-    required this.is_validate,
-    required this.is_round,
-    required this.is_osteoporosis,
+    this.sort,
+    this.is_validate,
+    this.is_round,
+    this.is_osteoporosis,
+    this.answer,
+    required this.choice,
   });
 
   final int id;
@@ -24,4 +28,6 @@ class Question {
   final int? is_validate;
   final int? is_round;
   final int? is_osteoporosis;
+  final Choice? answer;
+  final List<Choice> choice;
 }

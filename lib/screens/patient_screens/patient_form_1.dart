@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 import 'package:cu_menopause/data/model/patient_model.dart';
 
-class GeneralForm extends StatefulWidget {
-  const GeneralForm({Key? key}) : super(key: key);
+class PatientForm1 extends StatefulWidget {
+  const PatientForm1({Key? key}) : super(key: key);
 
   @override
-  _GeneralFormState createState() => _GeneralFormState();
+  _PatientForm1State createState() => _PatientForm1State();
 }
 
-class _GeneralFormState extends State<GeneralForm> {
+class _PatientForm1State extends State<PatientForm1> {
   String routeName = '/form_1';
 
   final _registerForm = GlobalKey<FormState>();
