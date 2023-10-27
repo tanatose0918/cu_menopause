@@ -1,5 +1,10 @@
-class Choice {
-  const Choice({
+import 'package:json_annotation/json_annotation.dart';
+
+part 'choice.g.dart';
+
+@JsonSerializable()
+class ChoiceObject {
+  ChoiceObject({
     required this.id,
     required this.question_id,
     this.parent_id,
@@ -16,6 +21,7 @@ class Choice {
     this.auto_field,
     this.is_disable,
     this.is_round,
+    this.sub_choice,
   });
 
   final int id;
@@ -34,4 +40,10 @@ class Choice {
   final String? auto_field;
   final int? is_disable;
   final int? is_round;
+  final List<ChoiceObject>? sub_choice;
+
+  factory ChoiceObject.fromJson(Map<String, dynamic> json) =>
+      _$SerializeChoiceObjectFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SerializeChoiceObjectToJson(this);
 }

@@ -24,6 +24,13 @@ class _LoginState extends State<Login> {
   final _password = TextEditingController();
 
   @override
+  void initState() {
+    _username.text = 'admin';
+    _password.text = '123456789';
+    super.initState();
+  }
+
+  @override
   void dispose() {
     _username.dispose();
     _password.dispose();

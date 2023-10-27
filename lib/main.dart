@@ -46,7 +46,7 @@ class CUMenopauseApp extends StatelessWidget {
           '/home': (BuildContext context) => const HomeScreen(),
           '/home/history': (BuildContext context) => const HistoryScreen(),
           '/register': (BuildContext context) => const Register(),
-          '/patient/1': (BuildContext context) => const PatientForm1(),
+          '/patient/form_1': (BuildContext context) => const PatientForm1(),
           '/mrs': (BuildContext context) => const Mrs(),
           '/nurse': (BuildContext context) => const Nurse(),
           '/doctor': (BuildContext context) => const Doctor(),

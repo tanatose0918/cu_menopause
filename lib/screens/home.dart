@@ -40,15 +40,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void getAllUsers() async {
     var response = await http.get(_starwarAPI_people);
-    // print(response.body);
 
     if (response.statusCode == 200) {
       var jsonResponse = json.decode(response.body);
       var people = jsonResponse['results'];
       print('can get User data: $people ');
-      // this._userInfo = jsonResponse[0];
-      // var itemCount = jsonResponse['totalItems'];
-      // print('can get User data: $jsonResponse');
     } else {
       print('Request failed with status: ${response.statusCode}.');
     }

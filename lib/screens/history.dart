@@ -26,6 +26,18 @@ class _HistoryState extends State<HistoryScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Color getColor(Set<MaterialState> states) {
+      const Set<MaterialState> interactiveStates = <MaterialState>{
+        MaterialState.pressed,
+        MaterialState.hovered,
+        MaterialState.focused,
+      };
+      if (states.any(interactiveStates.contains)) {
+        return Color.fromRGBO(170, 109, 185, 1);
+      }
+      return Colors.white;
+    }
+
     return Material(
         child: Stack(
       children: [
@@ -161,7 +173,11 @@ class _HistoryState extends State<HistoryScreen> {
                   padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                   child: DropdownMenu<String>(
                     initialSelection: list.first,
-                    menuStyle: MenuStyle(),
+                    menuStyle: MenuStyle(
+                        surfaceTintColor:
+                            MaterialStateProperty.resolveWith(getColor),
+                        backgroundColor:
+                            MaterialStateProperty.resolveWith(getColor)),
                     onSelected: (String? value) {
                       // This is called when the user selects an item.
                       setState(() {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:cu_menopause/data/model/patient_model.dart';
+import 'package:cu_menopause/screens/patient_screens/patient_form_1.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -13,6 +14,13 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   final _registerForm = GlobalKey<FormState>();
   final _mnNumber = TextEditingController();
+
+  @override
+  void initState() {
+    _mnNumber.text = '12345';
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -178,7 +186,7 @@ class _RegisterState extends State<Register> {
                             .setMnNumber(_mnNumber.text);
                         _mnNumber.text = '';
                         if (context.read<PatientModel>().checkMnNumber()) {
-                          Navigator.pushNamed(context, '/home');
+                          Navigator.pushNamed(context, PatientForm1.routeName);
                         }
                       },
                       child: Text('ถัดไป'))
